@@ -38,9 +38,6 @@ page 50100 "CSD Seminar Setup"
     }
 
 
-
-
-
     trigger OnOpenPage()
     begin
         if not get('') then begin   //if no blank primary key, then insert one
