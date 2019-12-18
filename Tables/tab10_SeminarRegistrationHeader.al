@@ -75,7 +75,7 @@ table 50110 "CSD Seminar Reg. Header"
         Field(5; "Instructor Resource No."; Code[20])
         {
             Caption = 'Instructor Resource No.';
-            TableRelation = Resource where (Type = const (Person));
+            TableRelation = Resource where(Type = const(Person));
             DataClassification = AccountData;
 
             trigger OnValidate();
@@ -83,11 +83,12 @@ table 50110 "CSD Seminar Reg. Header"
                 CalcFieldS("Instructor Name");
             end;
         }
+
         Field(6; "Instructor Name"; Text[50])
         {
             Caption = 'Instructor Name';
-            CalcFormula = Lookup (Resource.Name where ("No." = Field ("Instructor Resource No."),
-                                                      Type = const (Person)));
+            CalcFormula = Lookup (Resource.Name where("No." = Field("Instructor Resource No."),
+                                                      Type = const(Person)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -117,7 +118,7 @@ table 50110 "CSD Seminar Reg. Header"
         Field(11; "Room Resource No."; Code[20])
         {
             Caption = 'Room Resource No.';
-            TableRelation = Resource where (Type = const (Machine));
+            TableRelation = Resource where(Type = const(Machine));
             DataClassification = AccountData;
 
             trigger OnValidate();
@@ -248,8 +249,8 @@ table 50110 "CSD Seminar Reg. Header"
         Field(22; Comment; Boolean)
         {
             Caption = 'Comment';
-            CalcFormula = Exist ("CSD Seminar Comment Line" where ("Table Name" = const ("Seminar Registration"),
-                                                              "No." = Field ("No.")));
+            CalcFormula = Exist ("CSD Seminar Comment Line" where("Table Name" = const("Seminar Registration"),
+                                                              "No." = Field("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
